@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE JOY OF GAMING</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg:#080b14;
+  --card:#111827;
+  --blue:#168cff;
+  --purple:#8b5cf6;
+  --white:#ffffff;
+  --muted:#9ca3af;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:var(--bg);
+  color:white;
+  font-family:'Changa',sans-serif;
+}
+
+button,input{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,11,20,.95);
+  border-bottom:1px solid #20283a;
+  backdrop-filter:blur(15px);
+}
+
+.nav{
+  max-width:1250px;
+  margin:auto;
+  padding:17px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  font-family:'Orbitron',sans-serif;
+  font-weight:800;
+  color:#fff;
+  font-size:19px;
+  line-height:1.5;
+}
+
+.logo span{color:var(--blue)}
+
+nav{
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+nav a{
+  color:#cbd5e1;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{color:var(--blue)}
+
+.nav-actions{
+  display:flex;
+  gap:10px;
+}
+
+.icon-btn{
+  background:#182235;
+  border:1px solid #29364e;
+  color:white;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.icon-btn:hover{background:#203657}
+
+.hero{
+  max-width:1250px;
+  margin:35px auto;
+  padding:25px 22px;
+}
+
+.hero-box{
+  min-height:430px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:center;
+  background:
+  linear-gradient(90deg,rgba(4,9,20,.97),rgba(4,9,20,.45)),
+  url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1600') center/cover;
+  border:1px solid #26334a;
+}
+
+.hero-content{
+  padding:50px;
+  max-width:650px;
+}
+
+.tag{
+  display:inline-block;
+  background:#12345c;
+  color:#63b6ff;
+  padding:7px 16px;
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-family:'Orbitron','Changa',sans-serif;
+  font-size:clamp(30px,5vw,55px);
+  line-height:1.35;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:var(--blue);
+}
+
+.hero p{
+  color:#cbd5e1;
+  line-height:2;
+  margin-bottom:25px;
+}
+
+.primary-btn{
+  background:linear-gradient(110deg,#087cf0,#7147ec);
+  color:white;
+  border:0;
+  border-radius:10px;
+  padding:13px 28px;
+  font-weight:700;
+  font-size:15px;
+  display:inline-block;
+  transition:.3s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px #168cff55;
+}
+
+.secondary-btn{
+  background:#202a3d;
+  color:white;
+  border:1px solid #35445e;
+  padding:12px 22px;
+  border-radius:10px;
+  margin-right:8px;
+}
+
+.section{
+  max-width:1250px;
+  margin:65px auto;
+  padding:0 22px;
+}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+  gap:15px;
+}
+
+.section-heading h2{
+  font-size:25px;
+}
+
+.section-heading h2 span{color:var(--blue)}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.category{
+  background:linear-gradient(145deg,#17243a,#101522);
+  border:1px solid #26354d;
+  border-radius:15px;
+  padding:28px 15px;
+  text-align:center;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.category:hover{
+  transform:translateY(-6px);
+  border-color:var(--blue);
+  background:#152c49;
+}
+
+.category .emoji{font-size:38px}
+.category h3{margin-top:12px;font-size:16px}
+
+.search-area{
+  display:flex;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.search-area input{
+  width:100%;
+  background:#111827;
+  color:white;
+  border:1px solid #29364e;
+  padding:14px 18px;
+  border-radius:10px;
+  outline:none;
+}
+
+.search-area input:focus{border-color:var(--blue)}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product{
+  background:#111827;
+  border:1px solid #253149;
+  border-radius:15px;
+  overflow:hidden;
+  transition:.3s;
+  position:relative;
+}
+
+.product:hover{
+  transform:translateY(-6px);
+  border-color:#168cff;
+  box-shadow:0 10px 35px #087cf022;
+}
+
+.product img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  background:#1c2637;
+}
+
+.product-info{padding:16px}
+
+.product-info h3{
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.rating{color:#fbbf24;font-size:13px}
+
+.price{
+  color:#48a8ff;
+  font-size:19px;
+  font-weight:800;
+  margin:12px 0;
+}
+
+.old-price{
+  color:#778397;
+  text-decoration:line-through;
+  font-size:13px;
+  margin-right:7px;
+}
+
+.product-buttons{
+  display:flex;
+  gap:8px;
+}
+
+.add-btn{
+  flex:1;
+  border:0;
+  background:#087cf0;
+  color:white;
+  padding:10px 5px;
+  border-radius:8px;
+}
+
+.add-btn:hover{background:#0864c1}
+
+.fav-btn{
+  background:#26334a;
+  border:0;
+  color:white;
+  padding:8px 12px;
+  border-radius:8px;
+}
+
+.offer{
+  background:linear-gradient(100deg,#142f56,#38205f);
+  border:1px solid #344b83;
+  border-radius:20px;
+  padding:35px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.offer h2{font-size:27px}
+.offer p{color:#cbd5e1;margin-top:10px}
+
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.benefit{
+  background:#111827;
+  border:1px solid #263149;
+  padding:25px;
+  border-radius:13px;
+  text-align:center;
+}
+
+.benefit .emoji{font-size:30px}
+.benefit h3{margin:12px 0 5px}
+.benefit p{color:var(--muted);font-size:13px}
+
+footer{
+  background:#0d1422;
+  border-top:1px solid #263149;
+  margin-top:80px;
+  padding:45px 22px 20px;
+}
+
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+
+footer h3{margin-bottom:15px}
+footer p,footer a{color:#9ca3af;font-size:14px;line-height:2.2}
+footer a{display:block}
+footer a:hover{color:var(--blue)}
+
+.copyright{
+  text-align:center;
+  border-top:1px solid #263149;
+  padding-top:20px;
+  margin-top:30px;
+  color:#748094;
+  font-size:13px;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#0009;
+  z-index:200;
+  display:none;
+}
+
+.overlay.active{display:block}
+
+.cart-panel{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(400px,90%);
+  height:100%;
+  background:#111827;
+  z-index:201;
+  padding:25px;
+  transform:translateX(-110%);
+  transition:.3s;
+  overflow-y:auto;
+  border-right:1px solid #29364e;
+}
+
+.cart-panel.active{transform:translateX(0)}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.close-btn{
+  background:#28364d;
+  color:white;
+  border:0;
+  padding:7px 12px;
+  border-radius:8px;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #28364d;
+}
+
+.cart-item img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.cart-item-info{flex:1}
+.cart-item-info small{color:#60aaff}
+
+.remove-btn{
+  color:#ff6464;
+  background:none;
+  border:0;
+}
+
+.cart-total{
+  margin:25px 0;
+  font-size:20px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.checkout-btn{
+  width:100%;
+  background:linear-gradient(110deg,#087cf0,#7147ec);
+  border:0;
+  color:white;
+  padding:14px;
+  border-radius:9px;
+  font-size:16px;
+}
+
+.empty{
+  text-align:center;
+  color:#9ca3af;
+  padding:30px 0;
+}
+
+#toast{
+  position:fixed;
+  bottom:25px;
+  right:50%;
+  transform:translateX(50%) translateY(100px);
+  background:#087cf0;
+  padding:12px 25px;
+  border-radius:10px;
+  z-index:300;
+  transition:.3s;
+}
+
+#toast.show{transform:translateX(50%) translateY(0)}
+
+@media(max-width:900px){
+  .products{grid-template-columns:repeat(2,1fr)}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  nav{display:none}
+}
+
+@media(max-width:600px){
+  .hero-box{min-height:380px}
+  .hero-content{padding:25px}
+  .hero h1{font-size:29px}
+  .offer{flex-direction:column;align-items:flex-start}
+  .benefits{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .section-heading h2{font-size:20px}
+  .product img{height:145px}
+  .logo{font-size:13px}
+  .nav{padding:13px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#" class="logo">
+      THE JOY<br><span>OF GAMING</span>
+    </a>
+
+    <nav>
+      <a href="#">الرئيسية</a>
+      <a href="#categories">التصنيفات</a>
+      <a href="#products">المتجر</a>
+      <a href="#offers">العروض</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleLanguage()">EN / AR</button>
+      <button class="icon-btn" onclick="openCart()">🛒 <span id="cart-count">0</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <div class="hero-content">
+      <span class="tag">WELCOME TO THE GAMING WORLD</span>
+      <h1>THE JOY<br><span>OF GAMING</span></h1>
+      <p>عالمك المفضل للألعاب والإلكترونيات. اكتشف أحدث أجهزة الجيمنج والإكسسوارات بأفضل الأسعار.</p>
+      <a href="#products" class="primary-btn">تسوق الآن ←</a>
+      <a href="#categories" class="secondary-btn">اكتشف المتجر</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-heading">
+    <h2>تسوق حسب <span>التصنيف</span></h2>
+  </div>
+
+  <div class="categories">
+    <div class="category" onclick="filterCategory('all')">
+      <div class="emoji">🎮</div>
+      <h3>جميع المنتجات</h3>
+    </div>
+    <div class="category" onclick="filterCategory('accessories')">
+      <div class="emoji">🎧</div>
+      <h3>إكسسوارات الألعاب</h3>
+    </div>
+    <div class="category" onclick="filterCategory('keyboard')">
+      <div class="emoji">⌨️</div>
+      <h3>لوحات المفاتيح</h3>
+    </div>
+    <div class="category" onclick="filterCategory('monitor')">
+      <div class="emoji">🖥️</div>
+      <h3>الشاشات</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-heading">
+    <h2>منتجات <span>المتجر</span></h2>
+    <span style="color:#9ca3af">اكتشف منتجاتنا المميزة</span>
+  </div>
+
+  <div class="search-area">
+    <input id="search" type="search" placeholder="ابحث عن منتجك المفضل..." oninput="renderProducts()">
+  </div>
+
+  <div class="products" id="product-list"></div>
+</section>
+
+<section class="section" id="offers">
+  <div class="offer">
+    <div>
+      <span class="tag">SPECIAL OFFERS</span>
+      <h2>عروض مميزة لعشاق الألعاب!</h2>
+      <p>اكتشف منتجات الجيمنج واستمتع بتجربة لعب أفضل.</p>
+    </div>
+    <a href="#products" class="primary-btn">اكتشف العروض</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <h2>لماذا تختار <span>متجرنا؟</span></h2>
+  </div>
+  <div class="benefits">
+    <div class="benefit">
+      <div class="emoji">🚚</div>
+      <h3>شحن سريع</h3>
+      <p>توصيل المنتجات إلى باب منزلك.</p>
+    </div>
+    <div class="benefit">
+      <div class="emoji">🔒</div>
+      <h3>تسوق آمن</h3>
+      <p>تجربة تسوق موثوقة وآمنة.</p>
+    </div>
+    <div class="benefit">
+      <div class="emoji">🎧</div>
+      <h3>دعم العملاء</h3>
+      <p>نحن هنا لمساعدتك والإجابة عن استفساراتك.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <div class="logo">THE JOY <span>OF GAMING</span></div>
+      <p>وجهتك لعالم الألعاب والإلكترونيات. استمتع بأفضل تجربة تسوق لعشاق الجيمنج.</p>
+    </div>
+    <div>
+      <h3>روابط مهمة</h3>
+      <a href="#">الرئيسية</a>
+      <a href="#products">المتجر</a>
+      <a href="#offers">العروض</a>
+      <a href="#categories">التصنيفات</a>
+    </div>
+    <div>
+      <h3>تواصل معنا</h3>
+      <a href="mailto:info@example.com">البريد الإلكتروني</a>
+      <a href="https://wa.me/" target="_blank">واتساب</a>
+      <a href="#">سياسة الخصوصية</a>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2026 THE JOY OF GAMING. All Rights Reserved.
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<div class="cart-panel" id="cart">
+  <div class="cart-header">
+    <h2>🛒 سلة التسوق</h2>
+    <button class="close-btn" onclick="closeCart()">إغلاق ✕</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-total">
+    <span>الإجمالي:</span>
+    <strong id="cart-total">0 ر.س</strong>
+  </div>
+
+  <button class="checkout-btn" onclick="checkout()">إتمام الطلب</button>
+</div>
+
+<div id="toast">تمت إضافة المنتج إلى السلة!</div>
+
+<script>
+const products = [
+ {
+  id:1,
+  name:"سماعة Gaming احترافية",
+  category:"accessories",
+  price:189,
+  oldPrice:249,
+  rating:"★★★★★",
+  image:"https://images.unsplash.com/photo-1599669454699-248893623440?w=600"
+ },
+ {
+  id:2,
+  name:"كيبورد ميكانيكي RGB",
+  category:"keyboard",
+  price:249,
+  oldPrice:299,
+  rating:"★★★★★",
+  image:"https://images.unsplash.com/photo-1595225476474-87563907a212?w=600"
+ },
+ {
+  id:3,
+  name:"شاشة Gaming",
+  category:"monitor",
+  price:899,
+  oldPrice:1099,
+  rating:"★★★★☆",
+  image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600"
+ },
+ {
+  id:4,
+  name:"ماوس Gaming RGB",
+  category:"accessories",
+  price:129,
+  oldPrice:159,
+  rating:"★★★★★",
+  image:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=600"
+ },
+ {
+  id:5,
+  name:"يد تحكم للألعاب",
+  category:"accessories",
+  price:199,
+  oldPrice:249,
+  rating:"★★★★★",
+  image:"https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=600"
+ },
+ {
+  id:6,
+  name:"كرسي Gaming",
+  category:"accessories",
+  price:699,
+  oldPrice:799,
+  rating:"★★★★☆",
+  image:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=600"
+ },
+ {
+  id:7,
+  name:"لوحة مفاتيح احترافية",
+  category:"keyboard",
+  price:299,
+  oldPrice:349,
+  rating:"★★★★★",
+  image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600"
+ },
+ {
+  id:8,
+  name:"شاشة ألعاب احترافية",
+  category:"monitor",
+  price:1199,
+  oldPrice:1399,
+  rating:"★★★★★",
+  image:"https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600"
+ }
+];
+
+let cart = [];
+let favorites = [];
+let currentCategory = "all";
+let english = false;
+
+function renderProducts(){
+ const search = document.getElementById("search").value.toLowerCase();
+
+ const filtered = products.filter(p=>{
+  const matchSearch = p.name.toLowerCase().includes(search);
+  const matchCategory = currentCategory==="all" || p.category===currentCategory;
+  return matchSearch && matchCategory;
+ });
+
+ document.getElementById("product-list").innerHTML =
+ filtered.map(p=>`
+  <div class="product">
+   <img src="${p.image}" alt="${p.name}" loading="lazy"
+   onerror="this.src='https://placehold.co/600x400/111827/ffffff?text=Gaming+Product'">
+   <div class="product-info">
+    <h3>${p.name}</h3>
+    <div class="rating">${p.rating}</div>
+    <div class="price">
+     ${p.price} ر.س
+     <span class="old-price">${p.oldPrice} ر.س</span>
+    </div>
+    <div class="product-buttons">
+     <button class="add-btn" onclick="addToCart(${p.id})">أضف إلى السلة</button>
+     <button class="fav-btn" onclick="toggleFav(${p.id})">
+      ${favorites.includes(p.id)?"❤️":"♡"}
+     </button>
+    </div>
+   </div>
+  </div>
+ `).join("") || "<p>لا توجد منتجات مطابقة لبحثك.</p>";
+}
+
+function filterCategory(category){
+ currentCategory=category;
+ renderProducts();
+ document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+
+function addToCart(id){
+ const item=cart.find(p=>p.id===id);
+ if(item){
+  item.quantity++;
+ }else{
+  cart.push({...products.find(p=>p.id===id),quantity:1});
+ }
+ updateCart();
+ showToast("تمت إضافة المنتج إلى السلة!");
+}
+
+function removeFromCart(id){
+ cart=cart.filter(p=>p.id!==id);
+ updateCart();
+}
+
+function changeQuantity(id,amount){
+ const item=cart.find(p=>p.id===id);
+ if(!item)return;
+ item.quantity+=amount;
+ if(item.quantity<=0)removeFromCart(id);
+ else updateCart();
+}
+
+function updateCart(){
+ document.getElementById("cart-count").textContent=
+ cart.reduce((sum,p)=>sum+p.quantity,0);
+
+ document.getElementById("cart-items").innerHTML=cart.length?
+ cart.map(p=>`
+  <div class="cart-item">
+   <img src="${p.image}" alt="">
+   <div class="cart-item-info">
+    <strong>${p.name}</strong><br>
+    <small>${p.price} ر.س</small><br>
+    <button class="icon-btn" onclick="changeQuantity(${p.id},-1)">-</button>
+    ${p.quantity}
+    <button class="icon-btn" onclick="changeQuantity(${p.id},1)">+</button>
+   </div>
+   <button class="remove-btn" onclick="removeFromCart(${p.id})">حذف</button>
+  </div>
+ `).join(""):"<div class='empty'>سلة التسوق فارغة 🛒</div>";
+
+ const total=cart.reduce((sum,p)=>sum+p.price*p.quantity,0);
+ document.getElementById("cart-total").textContent=total+" ر.س";
+}
+
+function openCart(){
+ document.getElementById("cart").classList.add("active");
+ document.getElementById("overlay").classList.add("active");
+}
+
+function closeCart(){
+ document.getElementById("cart").classList.remove("active");
+ document.getElementById("overlay").classList.remove("active");
+}
+
+function toggleFav(id){
+ if(favorites.includes(id)){
+  favorites=favorites.filter(x=>x!==id);
+  showToast("تم حذف المنتج من المفضلة");
+ }else{
+  favorites.push(id);
+  showToast("تمت إضافة المنتج للمفضلة ❤️");
+ }
+ renderProducts();
+}
+
+function showToast(message){
+ const toast=document.getElementById("toast");
+ toast.textContent=message;
+ toast.classList.add("show");
+ setTimeout(()=>toast.classList.remove("show"),2000);
+}
+
+function checkout(){
+ if(cart.length===0){
+  showToast("سلة التسوق فارغة!");
+  return;
+ }
+ alert("هذه نسخة تجريبية. يلزم ربط بوابة الدفع ونظام الطلبات لإتمام عملية شراء حقيقية.");
+}
+
+function toggleLanguage(){
+ english=!english;
+ document.documentElement.lang=english?"en":"ar";
+ document.documentElement.dir=english?"ltr":"rtl";
+ showToast(english?"English mode selected":"تم اختيار العربية");
+}
+
+renderProducts();
+updateCart();
+</script>
+
+</body>
+</html>
